@@ -346,9 +346,11 @@ globalkeys = gears.table.join(
           end),
 
     --- Volume keys
-    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%+", false) end),
-    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -D pulse sset Master 2%-", false) end),
-    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -D pulse sset Master toggle", false) end),
+    -- awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("amixer -q set Master 2%+", false) end),
+    -- awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("amixer -q set Master 2%-", false) end),
+    awful.key({}, "XF86AudioRaiseVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%", false) end),
+    awful.key({}, "XF86AudioLowerVolume", function () awful.util.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%", false) end),
+    awful.key({}, "XF86AudioMute", function () awful.util.spawn("amixer -q set Master toggle", false) end),
     awful.key({}, "XF86AudioMicMute", function () awful.util.spawn("amixer set Capture toggle", false) end)
 )
 
@@ -602,4 +604,4 @@ awful.spawn.once("nm-applet", awful.rules.rules)
 awful.spawn.once("blueman-applet", awful.rules.rules)
 
 ---- Experimental autostart
-awful.spawn.once("/home/heijk/Downloads/cadmus.AppImage", awful.rules.rules)
+-- awful.spawn.once("/home/heijk/Downloads/cadmus.AppImage", awful.rules.rules)
