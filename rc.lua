@@ -596,7 +596,7 @@ beautiful.useless_gap = 5
 awful.spawn.with_shell("autorandr --change")
 awful.spawn.with_shell("slack")
 awful.spawn.with_shell("teams")
-awful.spawn.with_shell("feh --bg-fill ~/Afbeeldingen/wallpaper/IMG_20180811_215911.jpg")
+-- awful.spawn.with_shell("feh --bg-fill ~/Afbeeldingen/wallpaper/IMG_20180811_215911.jpg")
 awful.spawn.with_shell("~/.config/awesome/locker.sh")
 awful.spawn.with_shell("picom")
 awful.spawn.once("pasystray", awful.rules.rules)
