@@ -57,7 +57,7 @@ naughty.config.defaults.margin = 10
 naughty.config.defaults.position = "top_right"
 
 -- This is used later as the default terminal and editor to run.
-terminal = "gnome-terminal"
+terminal = "sakura"
 editor = os.getenv("atom") or "vi"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -593,15 +593,15 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 beautiful.useless_gap = 5
 
 --- Autostarts
-awful.spawn.with_shell("autorandr --change")
+awful.spawn.with_shell("autorandr --change && feh --bg-fill ~/.config/awesome/themes/default/background.jpg")
 awful.spawn.with_shell("slack")
 awful.spawn.with_shell("teams")
--- awful.spawn.with_shell("feh --bg-fill ~/Afbeeldingen/wallpaper/IMG_20180811_215911.jpg")
+-- awful.spawn.with_shell("feh --bg-fill ~/.config/awesome/themes/default/background.jpg")
 awful.spawn.with_shell("~/.config/awesome/locker.sh")
-awful.spawn.with_shell("picom")
+awful.spawn.with_shell("picom -b")
 awful.spawn.once("pasystray", awful.rules.rules)
 awful.spawn.once("nm-applet", awful.rules.rules)
-awful.spawn.once("blueman-applet", awful.rules.rules)
+-- awful.spawn.once("blueman-applet", awful.rules.rules)
 
 ---- Experimental autostart
 -- awful.spawn.once("/home/heijk/Downloads/cadmus.AppImage", awful.rules.rules)
